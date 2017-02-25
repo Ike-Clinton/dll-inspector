@@ -1,0 +1,10 @@
+﻿  dll-inspector.cpp
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(52): error C2065: 'functionName': undeclared identifier
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(53): error C2065: 'dllName': undeclared identifier
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(53): error C2065: 'function': undeclared identifier
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(53): error C3861: 'showFunctions': identifier not found
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(56): error C2065: 'dllName': undeclared identifier
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(56): error C3861: 'showFunctions': identifier not found
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(62): error C2065: 'function': undeclared identifier
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(62): error C2065: 'dll_filename': undeclared identifier
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(8): fatal error C1075: the left brace '{' was unmatched at the end of the file
