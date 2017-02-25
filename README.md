@@ -3,5 +3,6 @@ Simple DLL program to pull info from DLLs for help in analysis and (optionally) 
 
 ### Requirements for building from source
 
-Visual Studio 2015
-Boost.Program_options
+- Visual Studio 2015
+
+- Boost.Program_options
