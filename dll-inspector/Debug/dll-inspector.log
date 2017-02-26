@@ -1,9 +1,7 @@
-﻿  dll-inspector.cpp
-d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(42): error C2660: 'std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::count': function does not take 0 arguments
-          with
-          [
-              _Kty=std::string,
-              _Ty=boost::program_options::variable_value,
-              _Pr=std::less<std::string>,
-              _Alloc=std::allocator<std::pair<const std::string,boost::program_options::variable_value>>
-          ]
+﻿  utilities.cpp
+  dll-inspector.cpp
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(10): warning C4091: '': ignored on left of 'const unsigned int' when no variable is declared
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(10): error C2143: syntax error: missing ';' before 'constant'
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(10): error C2059: syntax error: 'constant'
+  analysis.cpp
+  Generating Code...

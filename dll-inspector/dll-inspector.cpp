@@ -12,6 +12,11 @@ namespace {
 
 int main(int argc, char** argv) {
 	try {
+		std::string dllName = "";
+		if (argc == 1) {
+			printf("Usage: dll-inspector.exe --inputFile [input.dll] [options]\n");
+			return SUCCESS;
+		}
 		// Use Boost program_options for arg parsing
 		namespace po = boost::program_options;
 
@@ -27,51 +32,42 @@ int main(int argc, char** argv) {
 		po::variables_map vm;
 		try
 		{
-			// Store the filename of the input dll here
-			std::string dllName = "";
 			// store the allowed command args in "vm"
 			po::store(po::command_line_parser(argc, argv).options(desc).run(), vm);
 
+			// Store the filename of the input dll here
+			
+			
 			// "--help" option for usage information
 			if (vm.count("help"))
 			{
 				printf("Usage: dll-inspector.exe --inputFile [input.dll] [options]\n");
+				std::cout << desc << std::endl;
 				return SUCCESS;
 			}
 			else if (vm.count("inputFile")) {
 				// Name of the dll e.g. "test.dll"
 				dllName = vm["inputFile"].as<std::string>();
 			}
-			if (strcmp(dllName.c_str(), "") == 0) {
-				printf("Please specify an input file with '--inputFile' e.g. 'input.dll'\n");
+
+			// User specified a .dll file, let's process their commands
+			// "--showFunctions"
+			if (vm.count("showFunctions")) {
+				printf("Showing functions from %s:\n\n", dllName.c_str());
+				showFunctions(dllName);
 			}
-			// User specified an input file
-			else {
-				// "--showFunctions"
-				if (vm.count("showFunctions")) {
-					printf("Showing functions from %s", dllName.c_str());
-					showFunctions(dllName);
-				}
 
-				// "--loadFunction myFunc"
-				if (vm.count("loadFunction")) {
-					// Get the name of the function from the command lines
-					std::string functionName = vm["loadFunction"].as<std::string>();
+			// "--loadFunction myFunc"
+			else if (vm.count("loadFunction")) {
+				// Get the name of the function from the command lines
+				std::string functionName = vm["loadFunction"].as<std::string>();
 
-					printf("Loading %s from %s", functionName.c_str(), dllName.c_str());
-					loadFunction(dllName, functionName);
-				}
+				printf("Loading %s from %s:\n\n", functionName.c_str(), dllName.c_str());
+				loadFunction(dllName, functionName);
 			}
-			// throws on error, so do after help in case there are errors
-			po::notify(vm);
-
-			
-
-			
-
+		// throws on error, so do after help in case there are errors
+		po::notify(vm);
 		}
-
-
 		catch (po::error& e)
 		{
 			std::cerr << "ERROR: " << e.what() << std::endl << std::endl;
