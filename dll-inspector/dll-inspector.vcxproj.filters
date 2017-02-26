@@ -24,10 +24,10 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="public.h">
+    <ClInclude Include="analysis.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="prototypes.h">
+    <ClInclude Include="public.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -36,6 +36,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="dll-inspector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="analysis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

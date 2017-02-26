@@ -151,12 +151,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="prototypes.h" />
+    <ClInclude Include="analysis.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="analysis.cpp" />
     <ClCompile Include="dll-inspector.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
