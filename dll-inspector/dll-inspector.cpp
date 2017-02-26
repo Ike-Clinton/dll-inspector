@@ -14,6 +14,7 @@ int main(int argc, char** argv) {
 	try {
 		// Use Boost program_options for arg parsing
 		namespace po = boost::program_options;
+
 		// Declare command line args and their descriptions
 		po::options_description desc("Options");
 		desc.add_options()
@@ -22,44 +23,52 @@ int main(int argc, char** argv) {
 			("showFunctions,s", "Display all functions in the given DLL")
 			("loadFunction,l", po::value<std::string>(), "Loads and runs specified function if given, otherwise loads DLLMain");
 
-		// Positional argument required for the DLL we are going to run
-		po::positional_options_description positionalOptions;
-		positionalOptions.add("input-file", -1);
-
 		// Map all the args to a variables_map called vm
 		po::variables_map vm;
 		try
 		{
-			po::store(po::command_line_parser(argc, argv).options(desc)
-				.positional(positionalOptions).run(),
-				vm);
-
-			// Name of the dll e.g. "test.dll"
-			std::string dllName = vm["input-file"].as<std::string>();
+			// Store the filename of the input dll here
+			std::string dllName = "";
+			// store the allowed command args in "vm"
+			po::store(po::command_line_parser(argc, argv).options(desc).run(), vm);
 
 			// "--help" option for usage information
 			if (vm.count("help"))
 			{
-				printf("Usage: dll-inspector.exe [input.dll] [options]");
+				printf("Usage: dll-inspector.exe --inputFile [input.dll] [options]\n");
 				return SUCCESS;
+			}
+			else if (vm.count("inputFile")) {
+				// Name of the dll e.g. "test.dll"
+				dllName = vm["inputFile"].as<std::string>();
+			}
+			if (strcmp(dllName.c_str(), "") == 0) {
+				printf("Please specify an input file with '--inputFile' e.g. 'input.dll'\n");
+			}
+			// User specified an input file
+			else {
+				// "--showFunctions"
+				if (vm.count("showFunctions")) {
+					printf("Showing functions from %s", dllName.c_str());
+					showFunctions(dllName);
+				}
+
+				// "--loadFunction myFunc"
+				if (vm.count("loadFunction")) {
+					// Get the name of the function from the command lines
+					std::string functionName = vm["loadFunction"].as<std::string>();
+
+					printf("Loading %s from %s", functionName.c_str(), dllName.c_str());
+					loadFunction(dllName, functionName);
+				}
 			}
 			// throws on error, so do after help in case there are errors
 			po::notify(vm);
 
-			// "--showFunctions"
-			if (vm.count("showFunctions")) {
-				printf("Showing functions from %s", dllName.c_str());
-				showFunctions(dllName);
-			}
+			
 
-			// "--loadFunction myFunc"
-			if (vm.count("loadFunction")) {
-				// Get the name of the function from the command lines
-				std::string functionName = vm["loadFunction"].as<std::string>();
+			
 
-				printf("Loading %s from %s", functionName.c_str(), dllName.c_str());
-				loadFunction(dllName, functionName);
-			}
 		}
 
 

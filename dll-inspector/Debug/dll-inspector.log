@@ -1,3 +1,9 @@
 ﻿  dll-inspector.cpp
-  dll-inspector.vcxproj -> D:\github\dll-inspector\dll-inspector\Debug\dll-inspector.exe
-  dll-inspector.vcxproj -> D:\github\dll-inspector\dll-inspector\Debug\dll-inspector.pdb (Full PDB)
+d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(42): error C2660: 'std::_Tree<std::_Tmap_traits<_Kty,_Ty,_Pr,_Alloc,false>>::count': function does not take 0 arguments
+          with
+          [
+              _Kty=std::string,
+              _Ty=boost::program_options::variable_value,
+              _Pr=std::less<std::string>,
+              _Alloc=std::allocator<std::pair<const std::string,boost::program_options::variable_value>>
+          ]
