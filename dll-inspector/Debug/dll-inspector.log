@@ -1,7 +1,5 @@
-﻿  utilities.cpp
-  dll-inspector.cpp
-d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(10): warning C4091: '': ignored on left of 'const unsigned int' when no variable is declared
-d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(10): error C2143: syntax error: missing ';' before 'constant'
-d:\github\dll-inspector\dll-inspector\dll-inspector.cpp(10): error C2059: syntax error: 'constant'
+﻿  dll-inspector.cpp
   analysis.cpp
   Generating Code...
+  dll-inspector.vcxproj -> D:\github\dll-inspector\dll-inspector\Debug\dll-inspector.exe
+  dll-inspector.vcxproj -> D:\github\dll-inspector\dll-inspector\Debug\dll-inspector.pdb (Full PDB)

@@ -1,5 +1,6 @@
 #include "public.h"
 
+// Helper function to convert string to LPCWSTR
 std::wstring s2ws(const std::string& s)
 {
 	int len;

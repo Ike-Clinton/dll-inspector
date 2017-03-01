@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iterator>
 #include <Windows.h>
+#include <stdio.h>
 
 // Local libs
 #include <boost/program_options.hpp>

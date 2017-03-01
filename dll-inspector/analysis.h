@@ -1,5 +1,5 @@
 #pragma once
 #include "stdafx.h"
 
-void loadFunction(std::string dllName, std::string functionName);
+void loadLibrary(std::string dllName);
 void showFunctions(std::string dllName);
